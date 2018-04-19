@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.lotterytechnology.lottery.R;
 import com.lotterytechnology.lottery.base.BaseFragment;
+import com.lotterytechnology.lottery.widget.RippleBackground;
 import com.lotterytechnology.lottery.widget.TopBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -30,6 +31,8 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.home_fragment_topbar)
     TopBar homeTopbar;
 
+    @BindView(R.id.home_rippbag)
+    RippleBackground rippleBackground;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -41,6 +44,7 @@ public class HomeFragment extends BaseFragment {
         super.initView();
         homeTopbar.setLeftButtonNoPic();
         homeTopbar.setRightTextGone();
+        rippleBackground.startRippleAnimation();
     }
 
     @Override
@@ -49,6 +53,18 @@ public class HomeFragment extends BaseFragment {
     }
 
     public HomeFragment() {
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (getUserVisibleHint()){
+            if (null != rippleBackground){
+                rippleBackground.startRippleAnimation();
+            }else {
+                rippleBackground.stopRippleAnimation();
+            }
+        }
     }
 
     @OnClick()

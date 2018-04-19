@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,6 +9,30 @@
         android:id="@+id/home_fragment_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.lotterytechnology.lottery.widget.TopBar>
-    
 
-</LinearLayout>
+    <com.lotterytechnology.lottery.widget.RippleBackground
+        android:id="@+id/home_rippbag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_fragment_topbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:rb_color="#0099CC"
+        app:rb_duration="3000"
+        app:rb_radius="32dp"
+        app:rb_rippleAmount="6"
+        app:rb_scale="6">
+
+        <Button
+            android:id="@+id/home_btn_buy"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:alpha="0.6"
+            android:background="@drawable/round_bg"
+            android:text="@string/buy"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+    </com.lotterytechnology.lottery.widget.RippleBackground>
+
+
+</RelativeLayout>
