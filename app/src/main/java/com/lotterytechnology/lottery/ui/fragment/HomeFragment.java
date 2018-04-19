@@ -58,6 +58,10 @@ public class HomeFragment extends BaseFragment {
             winInfoBean.setId("3127541564");
             winInfoBean.setLink("http://www.baidu.com");
             winInfoBean.setPlatform("彩票平台");
+            winInfoBean.setPrize(""+100*i);
+            winInfoBean.setPrizeTime(TimeUtils.getNowString());
+            winInfoBean.setStatus(1);
+            winInfoBeanList.add(winInfoBean);
         }
     }
 
