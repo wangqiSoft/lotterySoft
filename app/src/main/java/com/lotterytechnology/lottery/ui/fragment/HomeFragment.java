@@ -1,17 +1,16 @@
 package com.lotterytechnology.lottery.ui.fragment;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.View;
 
+import com.blankj.utilcode.util.TimeUtils;
+import com.blankj.utilcode.util.Utils;
 import com.lotterytechnology.lottery.R;
 import com.lotterytechnology.lottery.base.BaseFragment;
+import com.lotterytechnology.lottery.bean.WinInfoBean;
+import com.lotterytechnology.lottery.widget.CustomTouchRecyclerView;
 import com.lotterytechnology.lottery.widget.RippleBackground;
 import com.lotterytechnology.lottery.widget.TopBar;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +33,10 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.home_rippbag)
     RippleBackground rippleBackground;
 
+    @BindView(R.id.home_win_information_rv)
+    CustomTouchRecyclerView customTouchRecyclerView;
+    private List<WinInfoBean> winInfoBeanList;
+
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.fragment_home;
@@ -45,6 +48,17 @@ public class HomeFragment extends BaseFragment {
         homeTopbar.setLeftButtonNoPic();
         homeTopbar.setRightTextGone();
         rippleBackground.startRippleAnimation();
+        winInfoBeanList = new ArrayList<>();
+        for (int i = 0; i< 30 ;i++){
+            WinInfoBean winInfoBean = new WinInfoBean();
+            winInfoBean.setUserName("用户"+123+i*3+"***");
+            winInfoBean.setBetAmt(""+10+i*2);
+            winInfoBean.setCreateTime(TimeUtils.getNowString());
+            winInfoBean.setGameName("大乐透");
+            winInfoBean.setId("3127541564");
+            winInfoBean.setLink("http://www.baidu.com");
+            winInfoBean.setPlatform("彩票平台");
+        }
     }
 
     @Override
@@ -58,18 +72,24 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (getUserVisibleHint()){
-            if (null != rippleBackground){
+        if (getUserVisibleHint()) {
+            if (null != rippleBackground) {
                 rippleBackground.startRippleAnimation();
-            }else {
-                rippleBackground.stopRippleAnimation();
             }
+        }else {
+            if (null != rippleBackground)
+                rippleBackground.stopRippleAnimation();
         }
     }
 
-    @OnClick()
-    public void onClick() {
-//        StartActivityUtil.GoLoginActivity(getActivity(), new Bundle());
+    @OnClick(R.id.home_btn_buy)
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.home_btn_buy:
+                Toasty.info(getContext(),"您点击了购买按钮").show();
+                break;
+        }
+
     }
 
 

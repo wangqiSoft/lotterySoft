@@ -8,4 +8,7 @@
     <string name="news_name">资讯</string>
     <string name="me_name">我的</string>
     <string name="buy">购买</string>
+    <string name="home_win_information">中奖资讯</string>
+    <string name="home_win_information_item_content"><![CDATA[玩家 <font color="#0088fe">%1$s</font> 在 %2$s <font color="#0088fe">%3$s</font> 投注 <font color="#0088fe">%4$s</font> 元 喜中 <font color="#ff0000">%5$s</font> 元]]></string>
+
 </resources>
