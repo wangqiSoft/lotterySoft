@@ -1,4 +1,4 @@
-package com.lotterytechnology.lottery.widget;
+package com.lotterytechnology.lottery.adapter;
 
 
 import android.content.Context;
@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 
 import com.lotterytechnology.lottery.R;
+import com.lotterytechnology.lottery.ui.fragment.AIDataFragment;
+import com.lotterytechnology.lottery.ui.fragment.HomeFragment;
+import com.lotterytechnology.lottery.ui.fragment.MeFragment;
+import com.lotterytechnology.lottery.ui.fragment.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +34,10 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
     }
 
     public void init() {
-//        this.addFragment(new HomeFragment(), "首页");
-//        this.addFragment(new HealthArchivesFragment(), "健康档案");
-//        this.addFragment(new FocusFragment(), "关注");
-//        this.addFragment(new MeFragment(), "我的");
+        this.addFragment(new HomeFragment(), "首页");
+        this.addFragment(new AIDataFragment(), "AI大数据");
+        this.addFragment(new NewsFragment(), "资讯");
+        this.addFragment(new MeFragment(), "我的");
     }
 
     public void addFragment(Fragment fragment, String title) {
@@ -69,10 +73,10 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
     }
 
     private int[] imageResId = {
-//            R.drawable.tab_home,
-//            R.drawable.tab_goods,
-//            R.drawable.tab_light,
-//            R.drawable.tab_me
+            R.drawable.tab_home,
+            R.drawable.tab_ai_data,
+            R.drawable.tab_news,
+            R.drawable.tab_me
     };
 
 }

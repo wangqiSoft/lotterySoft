@@ -48,6 +48,7 @@ public class CountDownView extends View {
     private StaticLayout staticLayout;
 
     private CountDownTimerListener listener;
+    private CountDownTimer countDownTimer;
 
     public CountDownView(Context context) {
         this(context, null);
@@ -135,7 +136,7 @@ public class CountDownView extends View {
         if (listener != null) {
             listener.onStartCount();
         }
-        new CountDownTimer(countDownTime, 40) {
+        countDownTimer =  new CountDownTimer(countDownTime, 40) {
             @Override
             public void onTick(long millisUntilFinished) {
                 progress = ((countDownTime - millisUntilFinished) / (float)countDownTime) * 360;
@@ -152,6 +153,16 @@ public class CountDownView extends View {
                 }
             }
         }.start();
+    }
+
+    /**
+     * 终止计时器计时
+     */
+    public void cancle(){
+        if (null != countDownTimer){
+            countDownTimer.cancel();
+        }
+        if (null != listener) listener = null;
     }
 
     public void setCountDownTimerListener(CountDownTimerListener listener) {

@@ -5,7 +5,8 @@ import android.view.View;
 
 import com.lotterytechnology.lottery.R;
 import com.lotterytechnology.lottery.base.BaseActivity;
-import com.lotterytechnology.lottery.widget.MainPagerAdapter;
+import com.lotterytechnology.lottery.base.BasePresenter;
+import com.lotterytechnology.lottery.adapter.MainPagerAdapter;
 import com.lotterytechnology.lottery.widget.MyViewPager;
 
 import butterknife.BindView;
@@ -28,6 +29,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int getlayoutContentView() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected BasePresenter generatePresenter() {
+        return null;
     }
 
     @Override

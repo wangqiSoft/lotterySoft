@@ -3,6 +3,14 @@ package com.lotterytechnology.lottery.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.flyco.systembar.SystemBarHelper;
+import com.lotterytechnology.lottery.R;
+
+import butterknife.ButterKnife;
 
 /**
 * @author Ryder
@@ -10,8 +18,44 @@ import android.support.v4.app.Fragment;
 * description: fragment 的基类
 **/
 public class BaseFragment extends Fragment {
+
+    @Nullable
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (getContentViewLayoutID() != 0) {
+            return inflater.inflate(getContentViewLayoutID(), container, false);
+        } else {
+            return super.onCreateView(inflater, container, savedInstanceState);
+        }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
+        initView();
+        SystemBarHelper.tintStatusBar(getActivity(), getResources().getColor(R.color.mainTabColor));
+//        SystemBarHelper.immersiveStatusBar(this);
+//        if (setTopView() != null) {
+//            SystemBarHelper.setHeightAndPadding(this, setTopView());
+//        }
+    }
+
+    public BaseFragment() {
+    }
+
+    protected int getContentViewLayoutID(){
+        return 0;
+    }
+
+    /**
+     *
+     * 初始化界面
+     */
+    protected void initView(){
+
+    }
+    protected View setTopView() {
+        return null;
     }
 }

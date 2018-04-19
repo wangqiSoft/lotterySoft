@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.lotterytechnology.lottery.R;
+import com.lotterytechnology.lottery.base.BasePresenter;
 import com.lotterytechnology.lottery.utils.StartActivityUtil;
 import com.lotterytechnology.lottery.base.BaseActivity;
 import com.lotterytechnology.lottery.widget.CountDownView;
@@ -42,13 +43,24 @@ public class SplashActivity extends BaseActivity implements CountDownView.CountD
     }
 
     @Override
+    protected BasePresenter generatePresenter() {
+        return null;
+    }
+
+    @Override
     protected View setTopView() {
         return super.setTopView();
     }
 
     @OnClick(R.id.cdv)
     public void onClick() {
-
+        countDownView.cancle();
+        //是否显示了引导页
+//        if (PreferencesUtils.getBoolean(this, PreferencesConfig.GuiActivityShow)) {
+        StartActivityUtil.GoMainActivity(this, new Bundle());
+//        } else {
+//            StartActivityUtil.GoGuideActivity(this,new Bundle());
+//        }
     }
 
 

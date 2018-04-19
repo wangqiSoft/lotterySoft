@@ -3,8 +3,17 @@ package com.lotterytechnology.lottery;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 
+import com.blankj.utilcode.util.Utils;
+import com.lotterytechnology.lottery.config.ApiContans;
+import com.lotterytechnology.lottery.utils.crash.Cockroach;
 import com.mob.MobSDK;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
 import es.dmoral.toasty.Toasty;
 
@@ -28,6 +37,20 @@ public class Myapplication extends Application {
         initToast();
         //mob 初始化
         MobSDK.init(this);
+        //设置日志打印的格式
+        Logger.addLogAdapter(new AndroidLogAdapter(PrettyFormatStrategy.newBuilder().tag(ApiContans.LogTAG).build()) {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return ApiContans.DEBUG;
+            }
+
+        });
+        //初始化工具类
+        Utils.init(this);
+        //初始化崩溃收集 上线需要，debug不要开启，不然查看不到错误信息
+        if (!ApiContans.DEBUG) {
+            initCrash();
+        }
     }
 
     /**
@@ -44,6 +67,28 @@ public class Myapplication extends Application {
                 .setToastTypeface(Typeface.DEFAULT) // optional
                 .setTextSize(15) // optional
                 .apply(); // required
+    }
+    /**
+     * 初始化崩溃的捕获事件
+     */
+    private void initCrash() {
+        Cockroach.install(new Cockroach.ExceptionHandler() {
+            @Override
+            public void handlerException(final Thread thread, final Throwable throwable) {
+
+                Log.e("Cockroach", "MainThread: " + Looper.getMainLooper().getThread() + "  curThread: " + Thread.currentThread());
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Log.e("AndroidRuntime", "--->CockroachException:" + thread + "<---", throwable);
+                        } catch (Throwable e) {
+                            Log.e("AndroidRuntime", "e:" + e.toString());
+                        }
+                    }
+                });
+            }
+        });
     }
 
 }

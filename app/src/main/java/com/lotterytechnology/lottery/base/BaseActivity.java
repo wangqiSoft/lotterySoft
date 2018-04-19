@@ -1,11 +1,13 @@
 package com.lotterytechnology.lottery.base;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.flyco.systembar.SystemBarHelper;
+import com.lotterytechnology.lottery.R;
 import com.lotterytechnology.lottery.utils.ActivityManager;
 
 import butterknife.ButterKnife;
@@ -15,7 +17,11 @@ import butterknife.ButterKnife;
  * create at 2018/4/6 10:39
  * description:  activity 的基类
  **/
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity <P extends BasePresenter > extends AppCompatActivity {
+    protected P mPresenter;
+    private ProgressDialog progressDialog;
+
+    protected abstract P generatePresenter();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +29,13 @@ public class BaseActivity extends AppCompatActivity {
             setContentView(getlayoutContentView());
             ButterKnife.bind(this);
         }
+        mPresenter = generatePresenter();
         initView();
-        SystemBarHelper.immersiveStatusBar(this);
-        if (setTopView() != null) {
-            SystemBarHelper.setHeightAndPadding(this, setTopView());
-        }
+        SystemBarHelper.tintStatusBar(this, getResources().getColor(R.color.mainTabColor));
+//        SystemBarHelper.immersiveStatusBar(this);
+//        if (setTopView() != null) {
+//            SystemBarHelper.setHeightAndPadding(this, setTopView());
+//        }
         ActivityManager.getInstance().addActivity(this);
     }
 
@@ -42,5 +50,28 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void initView() {
 
+    }
+    /**
+     * 显示提示框
+     */
+    public void showProgressDialog(String msg) {
+        if ((!isFinishing()) && (progressDialog == null)) {
+            progressDialog = new ProgressDialog(this);
+        }
+        if (msg == null || "".equals(msg)) {
+            msg = "加载中……";
+        }
+        this.progressDialog.setMessage(msg);
+        //this.progressDialog.setCancelable(false);
+        this.progressDialog.setCanceledOnTouchOutside(false);
+        this.progressDialog.show();
+    }
+
+    /**
+     * 关闭提示框
+     */
+    public void closeProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
     }
 }
