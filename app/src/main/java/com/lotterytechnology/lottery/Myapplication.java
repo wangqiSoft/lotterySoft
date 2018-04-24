@@ -10,7 +10,7 @@ import android.util.Log;
 import com.blankj.utilcode.util.Utils;
 import com.lotterytechnology.lottery.config.ApiContans;
 import com.lotterytechnology.lottery.utils.crash.Cockroach;
-import com.mob.MobSDK;
+//import com.mob.MobSDK;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
@@ -36,7 +36,7 @@ public class Myapplication extends Application {
         //初始化toast
         initToast();
         //mob 初始化
-        MobSDK.init(this);
+//        MobSDK.init(this);
         //设置日志打印的格式
         Logger.addLogAdapter(new AndroidLogAdapter(PrettyFormatStrategy.newBuilder().tag(ApiContans.LogTAG).build()) {
             @Override

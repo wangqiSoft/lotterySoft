@@ -12,10 +12,11 @@
     <color name="black_colors">#454A53</color>
     <color name="line_color">#F1F1F1</color>
 
-    <color name="blue_color">#1794E2</color>
+    <!--<color name="blue_color">#1794E2</color>-->
     <color name="tab_bottom_bg">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="tab_top_item">#595757</color>
+    <color name="grey_bg">#D2D2D2</color>
 
 
     <color name="white">#ffffff</color>

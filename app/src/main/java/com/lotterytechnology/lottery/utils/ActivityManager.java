@@ -91,15 +91,4 @@ public class ActivityManager {
         }
         return false;
     }
-
-//    public void finishAllActivityNoLogin() {
-//        if (!Utils.isNullOrEmpty(activityStack)) {
-//            for (SoftReference<Activity> s : activityStack) {
-//                Activity activity = s.get();
-//                if (activity != null && !(activity instanceof LoginActivity)) {
-//                    activity.finish();
-//                }
-//            }
-//        }
-//    }
 }

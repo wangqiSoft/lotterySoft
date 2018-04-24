@@ -1,13 +1,17 @@
 package com.lotterytechnology.lottery.ui.fragment;
 
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 
 import com.lotterytechnology.lottery.R;
 import com.lotterytechnology.lottery.base.BaseFragment;
+import com.lotterytechnology.lottery.utils.StartActivityUtil;
 import com.lotterytechnology.lottery.widget.TopBar;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * @author Ryder
@@ -40,4 +44,10 @@ public class MeFragment extends BaseFragment {
     protected View setTopView() {
         return meTopbar;
     }
+
+    @OnClick(R.id.btn_goregist)
+    public void onClick(View view) {
+        StartActivityUtil.GoToRegistActivity(getContext(), new Bundle());
+    }
+
 }

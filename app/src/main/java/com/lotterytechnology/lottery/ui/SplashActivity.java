@@ -58,9 +58,11 @@ public class SplashActivity extends BaseActivity implements CountDownView.CountD
         //是否显示了引导页
 //        if (PreferencesUtils.getBoolean(this, PreferencesConfig.GuiActivityShow)) {
         StartActivityUtil.GoMainActivity(this, new Bundle());
+
 //        } else {
 //            StartActivityUtil.GoGuideActivity(this,new Bundle());
 //        }
+        finish();
     }
 
 
@@ -79,6 +81,6 @@ public class SplashActivity extends BaseActivity implements CountDownView.CountD
 //        } else {
 //            StartActivityUtil.GoGuideActivity(this,new Bundle());
 //        }
-
+        finish();
     }
 }

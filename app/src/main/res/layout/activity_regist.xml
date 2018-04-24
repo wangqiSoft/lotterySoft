@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:orientation="vertical"
+    tools:context="com.lotterytechnology.lottery.ui.me.RegistActivity">
+
+    <com.lotterytechnology.lottery.widget.TopBar
+        android:id="@+id/regist_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.lotterytechnology.lottery.widget.TopBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimens_50dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_50dp"
+                android:layout_marginLeft="@dimen/dimens_25dp"
+                android:layout_marginRight="@dimen/dimens_25dp"
+                android:layout_marginTop="@dimen/dimens_50dp"
+                android:background="@drawable/whit_bg_kuang"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimens_3dp">
+
+                <ImageView
+                    android:id="@+id/ig_regist_input_mobile"
+                    android:layout_width="@dimen/dimens_25dp"
+                    android:layout_height="@dimen/dimens_25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimens_10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/mobile" />
+
+                <EditText
+                    android:id="@+id/regist_input_mobile"
+                    style="@style/input.Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/mobile_hint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_50dp"
+                android:layout_marginLeft="@dimen/dimens_25dp"
+                android:layout_marginRight="@dimen/dimens_25dp"
+                android:layout_marginTop="@dimen/dimens_15dp"
+                android:background="@drawable/whit_bg_kuang"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimens_3dp">
+
+                <ImageView
+                    android:id="@+id/ig_regist_input_password"
+                    android:layout_width="@dimen/dimens_25dp"
+                    android:layout_height="@dimen/dimens_25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimens_10dp"
+                    android:padding="@dimen/dimens_2dp"
+                    android:src="@drawable/password" />
+
+                <EditText
+                    android:id="@+id/regist_input_password"
+                    style="@style/input.Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/password_hint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_50dp"
+                android:layout_marginLeft="@dimen/dimens_25dp"
+                android:layout_marginRight="@dimen/dimens_25dp"
+                android:layout_marginTop="@dimen/dimens_15dp"
+                android:background="@drawable/whit_bg_kuang"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimens_3dp">
+
+                <ImageView
+                    android:id="@+id/ig_regist_input_nick_name"
+                    android:layout_width="@dimen/dimens_25dp"
+                    android:layout_height="@dimen/dimens_25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimens_10dp"
+                    android:padding="@dimen/dimens_2dp"
+                    android:src="@drawable/nick_name" />
+
+                <EditText
+                    android:id="@+id/regist_input_nick_name"
+                    style="@style/input.Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/nick_name_hint" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_50dp"
+                android:layout_marginLeft="@dimen/dimens_25dp"
+                android:layout_marginRight="@dimen/dimens_25dp"
+                android:layout_marginTop="@dimen/dimens_15dp"
+                android:background="@drawable/whit_bg_kuang"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimens_3dp">
+
+                <ImageView
+                    android:id="@+id/ig_regist_input_vercode"
+                    android:layout_width="@dimen/dimens_25dp"
+                    android:layout_height="@dimen/dimens_25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimens_10dp"
+                    android:padding="@dimen/dimens_2dp"
+                    android:src="@drawable/vercode" />
+
+                <ImageView
+                    android:id="@+id/ig_regist_show_vercode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimens_5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimens_5dp"
+                    android:src="@mipmap/reload" />
+
+                <EditText
+                    android:id="@+id/regist_input_vercode"
+                    style="@style/input.Text"
+                    android:layout_marginRight="@dimen/dimens_15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/ig_regist_show_vercode"
+                    android:layout_toRightOf="@+id/ig_regist_input_vercode"
+                    android:hint="@string/vercode_hint" />
+
+
+            </RelativeLayout>
+            <com.dd.CircularProgressButton
+                android:id="@+id/regist_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_50dp"
+                android:layout_marginLeft="@dimen/dimens_15dp"
+                android:layout_marginRight="@dimen/dimens_15dp"
+                android:layout_marginTop="@dimen/dimens_15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:cpb_cornerRadius="48dp"
+                app:cpb_textComplete="@string/register_sucess"
+                app:cpb_textError="@string/register_fail"
+                app:cpb_textIdle="@string/register"
+                app:cpb_selectorIdle="@drawable/idle_state_selector"
+                app:cpb_selectorComplete="@drawable/complete_state_selector"
+                app:cpb_selectorError="@drawable/error_state_selector"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

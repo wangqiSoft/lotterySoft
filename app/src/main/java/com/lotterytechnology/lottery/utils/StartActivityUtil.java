@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.lotterytechnology.lottery.ui.GuideActivity;
 import com.lotterytechnology.lottery.ui.MainActivity;
+import com.lotterytechnology.lottery.ui.me.RegistActivity;
 
 /**
  * @author Ryder
@@ -49,6 +50,17 @@ public class StartActivityUtil {
         Intent intent = new Intent(context, clazz);
         context.startActivity(intent);
         if (isFinishCurrentPage) ((Activity) context).finish();
+    }
+
+    /**
+     * 跳转注册页面
+     * @param context
+     * @param bundle
+     */
+    public static void GoToRegistActivity(Context context,Bundle bundle) {
+        Intent intent = new Intent(context, RegistActivity.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
     }
 
 }

@@ -23,7 +23,7 @@
         android:elevation="0dp"
         app:tabPaddingEnd="12dp"
         app:tabPaddingStart="12dp"
-        app:tabSelectedTextColor="@color/blue_color"
+        app:tabSelectedTextColor="@color/mainTabColor"
         app:tabTextColor="@color/tab_top_item">
 
     </android.support.design.widget.TabLayout>

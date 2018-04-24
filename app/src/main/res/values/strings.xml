@@ -8,7 +8,21 @@
     <string name="news_name">资讯</string>
     <string name="me_name">我的</string>
     <string name="buy">购买</string>
+    <string name="register">注册</string>
+    <string name="register_sucess">注册成功</string>
+    <string name="register_fail">注册失败，请点击重新注册</string>
     <string name="home_win_information">中奖资讯</string>
-    <string name="home_win_information_item_content"><![CDATA[玩家 <font color="#0088fe">%1$s</font> 在 %2$s <font color="#0088fe">%3$s</font> 投注 <font color="#0088fe">%4$s</font> 元 喜中 <font color="#ff0000">%5$s</font> 元]]></string>
+    <string name="mobile_hint">请输入手机号码</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="nick_name_hint">请输入昵称</string>
+    <string name="vercode_hint">请输入验证码</string>
+    <string name="vercode_error">验证码错误</string>
+    <string name="vercode_empty">验证码不能为空</string>
+    <string name="mobile_empty">手机号码不能为空</string>
+    <string name="mobile_error">手机号码错误</string>
+    <string name="password_empty">密码不能为空</string>
+    <string name="password_error">密码为6-16位数字或英文字母</string>
+    <string name="password_mobile">密码不能与手机号相同</string>
+    <string name="home_win_information_item_content"><![CDATA[用户 <font color="#0088fe">%1$s</font> 在 %2$s <font color="#0088fe">%3$s</font> 投注 <font color="#0088fe">%4$s</font> 元 喜中 <font color="#ff0000">%5$s</font> 元]]></string>
 
 </resources>
